@@ -42,7 +42,8 @@ export default function IntuitiveLandingPage() {
         <nav style={{ width: '100%', maxWidth: '900px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 12px #10b981' }}></span>
-            <span style={{ fontWeight: '800', fontSize: '1.1rem', letterSpacing: '-0.025em', color: '#ffffff' }}>deer ai</span>
+            {/* 品牌名称字体与间距优化 */}
+            <span style={{ fontWeight: '800', fontSize: '1.15rem', letterSpacing: '-0.03em', color: '#ffffff' }}>deer ai</span>
           </div>
           <a 
             href="https://你的主应用链接" 

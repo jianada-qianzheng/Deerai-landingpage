@@ -1,45 +1,24 @@
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
 
-// 模拟实时字幕滚动播放的文案
-const captionSentences = [
-  "👋 Welcome everyone to today's live stream!",
-  "⚡ This entire sentence is being captioned in real-time by AI...",
-  "🎯 Perfectly synced for OBS Studio and YouTube Live.",
-  "🚀 Zero lag, professional broadcasting quality for your channel."
+// 直播字幕语句（整行、整句切换，模拟真实 OBS / YouTube 实时字幕）
+const captionLines = [
+  "Speak naturally during your broadcast.",
+  "Our AI instantly converts your voice into professional live captions on screen with zero lag.",
+  "Seamlessly integrated with OBS Studio and YouTube Live.",
+  "Zero latency. Professional broadcasting quality."
 ];
 
 export default function IntuitiveLandingPage() {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(100);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // 打字机/字幕滚动动态效果
+  // 每一行字幕停留 3.5 秒后自动切换下一行（整行刷新）
   useEffect(() => {
-    const fullText = captionSentences[currentTextIndex];
-    
-    const handleTyping = () => {
-      if (!isDeleting) {
-        setDisplayedText(fullText.substring(0, displayedText.length + 1));
-        if (displayedText === fullText) {
-          // 停顿 2 秒后开始删除
-          setTimeout(() => setIsDeleting(true), 2000);
-          setTypingSpeed(50);
-        }
-      } else {
-        setDisplayedText(fullText.substring(0, displayedText.length - 1));
-        if (displayedText === "") {
-          setIsDeleting(false);
-          setCurrentTextIndex((prev) => (prev + 1) % captionSentences.length);
-          setTypingSpeed(100);
-        }
-      }
-    };
-
-    const timer = setTimeout(handleTyping, typingSpeed);
-    return () => clearTimeout(timer);
-  }, [displayedText, isDeleting, currentTextIndex, typingSpeed]);
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % captionLines.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <>
@@ -75,7 +54,7 @@ export default function IntuitiveLandingPage() {
         </nav>
 
         {/* 核心价值区 */}
-        <div style={{ maxWidth: '720px', width: '100%', textAlign: 'center', margin: 'auto 0' }}>
+        <div style={{ maxWidth: '780px', width: '100%', textAlign: 'center', margin: 'auto 0' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '6px 14px', background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.25)', borderRadius: '20px', color: '#34d399', fontSize: '0.8rem', fontWeight: '700', marginBottom: '20px' }}>
             <span>⚡ AI Live Subtitle Engine</span>
           </div>
@@ -88,10 +67,10 @@ export default function IntuitiveLandingPage() {
           </h1>
 
           <p style={{ fontSize: '1.05rem', color: '#9ca3af', lineHeight: '1.6', marginBottom: '32px' }}>
-            Speak naturally during your broadcast. Our AI instantly converts your voice into professional live captions on screen with zero lag.
+            Transform your spoken words into clean, professional live streams captions instantly.
           </p>
 
-          {/* 🌟 直观的直播字幕动态演示视窗 */}
+          {/* 🌟 直播字幕动态演示视窗（整行刷新） */}
           <div style={{ 
             background: 'linear-gradient(180deg, #111827 0%, #0b1120 100%)', 
             border: '1px solid rgba(16, 185, 129, 0.3)', 
@@ -102,7 +81,7 @@ export default function IntuitiveLandingPage() {
             position: 'relative',
             overflow: 'hidden'
           }}>
-            {/* 视窗顶部小标签 */}
+            {/* 视窗顶部状态栏 */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', fontSize: '0.75rem', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#ef4444', fontWeight: '700' }}>
                 <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444', display: 'inline-block', boxShadow: '0 0 8px #ef4444' }}></span> LIVE PREVIEW
@@ -110,13 +89,13 @@ export default function IntuitiveLandingPage() {
               <span>OBS / YouTube Integration</span>
             </div>
 
-            {/* 字幕黑底框模拟 */}
+            {/* 字幕黑底框模拟（整行切换） */}
             <div style={{ 
-              background: 'rgba(0, 0, 0, 0.75)', 
+              background: 'rgba(0, 0, 0, 0.8)', 
               border: '1px solid rgba(255, 255, 255, 0.1)', 
               borderRadius: '12px', 
-              padding: '24px 20px', 
-              minHeight: '80px',
+              padding: '28px 20px', 
+              minHeight: '90px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -124,19 +103,19 @@ export default function IntuitiveLandingPage() {
             }}>
               <p style={{ 
                 margin: 0, 
-                fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', 
-                fontWeight: '700', 
+                fontSize: 'clamp(1rem, 1.8vw, 1.25rem)', 
+                fontWeight: '600', 
                 color: '#ffffff', 
-                textShadow: '0 2px 4px rgba(0,0,0,0.8)',
-                letterSpacing: '0.01em'
+                textShadow: '0 2px 6px rgba(0,0,0,0.9)',
+                lineHeight: '1.5',
+                transition: 'opacity 0.3s ease-in-out'
               }}>
-                {displayedText}
-                <span style={{ borderRight: '3px solid #34d399', marginLeft: '4px', animation: 'blink 1s infinite' }}></span>
+                {captionLines[currentIndex]}
               </p>
             </div>
             
             <p style={{ margin: '14px 0 0 0', fontSize: '0.8rem', color: '#6b7280' }}>
-              ↑ This is how your viewers will see real-time captions on your stream.
+              ↑ Real-time caption line switching as spoken during stream.
             </p>
           </div>
 

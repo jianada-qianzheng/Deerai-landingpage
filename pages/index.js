@@ -108,7 +108,7 @@ export default function IntuitiveLandingPage() {
             href="https://你的主应用链接" 
             style={{ display: 'block', width: '100%', padding: '16px', background: '#10b981', color: '#030712', borderRadius: '14px', textDecoration: 'none', fontWeight: '800', fontSize: '1.05rem', boxSizing: 'border-box', boxShadow: '0 6px 25px rgba(16,185,129,0.35)', transition: 'transform 0.2s' }}
           >
-            Start Streaming With deer ai &rarr;
+            Try Live Caption for Free &rarr;
           </a>
         </div>
 

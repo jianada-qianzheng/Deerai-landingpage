@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 // 精简的单行直播字幕语句
 const captionLines = [
-  "Speak naturally — AI converts your voice to live captions instantly.",
+  "AI converts your voice to live captions instantly.",
   "Seamlessly integrated with OBS Studio and YouTube Live.",
   "Zero latency, professional broadcasting quality."
 ];

@@ -22,7 +22,7 @@ export default function IntuitiveLandingPage() {
   return (
     <>
       <Head>
-        <title>Deer AI - Real-Time Live Captions for OBS & YouTube</title>
+        <title>Deer AI | Live Caption for OBS & YouTube</title>
         <meta name="description" content="Professional AI-powered real-time live captions for OBS Studio and YouTube streams by Deer AI." />
       </Head>
 

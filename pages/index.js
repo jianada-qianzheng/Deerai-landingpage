@@ -55,7 +55,8 @@ export default function IntuitiveLandingPage() {
         {/* 核心价值区 */}
         <div style={{ maxWidth: '780px', width: '100%', textAlign: 'center', margin: 'auto 0', padding: '20px 0' }}>
           
-          <h1 style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', fontWeight: '900', lineHeight: '1.15', letterSpacing: '-0.035em', color: '#ffffff', marginBottom: '32px' }}>
+          {/* 🌟 主标题：窄屏自动缩小、宽屏自动放大 */}
+          <h1 style={{ fontSize: 'clamp(1.7rem, 5.2vw, 3.4rem)', fontWeight: '900', lineHeight: '1.15', letterSpacing: '-0.035em', color: '#ffffff', marginBottom: '32px' }}>
             Real-Time Subtitles for <br />
             <span style={{ background: 'linear-gradient(135deg, #34d399 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
               OBS & YouTube Streams

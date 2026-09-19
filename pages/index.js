@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 // 精简的单行直播字幕语句
 const captionLines = [
-  "AI converts your voice to live captions instantly.",
+  "Speak naturally — AI converts your voice to live captions instantly.",
   "Seamlessly integrated with OBS Studio and YouTube Live.",
   "Zero latency, professional broadcasting quality."
 ];
@@ -48,7 +48,7 @@ export default function IntuitiveLandingPage() {
             href="https://你的主应用链接" 
             style={{ padding: '8px 18px', background: '#2563eb', color: 'white', borderRadius: '10px', textDecoration: 'none', fontWeight: '700', fontSize: '0.85rem', boxShadow: '0 4px 12px rgba(37,99,235,0.3)' }}
           >
-            Open Dashboard &rarr;
+            Try for Free &rarr;
           </a>
         </nav>
 

@@ -1,10 +1,9 @@
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
 
-// 直播字幕语句（整行、整句切换，模拟真实 OBS / YouTube 实时字幕）
+// 直播字幕语句（包含您要求的核心说明，整行切换）
 const captionLines = [
-  "Speak naturally during your broadcast.",
-  "Our AI instantly converts your voice into professional live captions on screen with zero lag.",
+  "Speak naturally during your broadcast. Our AI instantly converts your voice into professional live captions on screen with zero lag.",
   "Seamlessly integrated with OBS Studio and YouTube Live.",
   "Zero latency. Professional broadcasting quality."
 ];
@@ -23,7 +22,7 @@ export default function IntuitiveLandingPage() {
   return (
     <>
       <Head>
-        <title>Live Caption - Real-Time Subtitles for Live Streaming</title>
+        <title>deer ai - Real-Time Subtitles for Live Streaming</title>
         <meta name="description" content="Professional AI-powered real-time live captions for OBS Studio and YouTube streams." />
       </Head>
 
@@ -43,7 +42,7 @@ export default function IntuitiveLandingPage() {
         <nav style={{ width: '100%', maxWidth: '900px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 12px #10b981' }}></span>
-            <span style={{ fontWeight: '800', fontSize: '1.1rem', letterSpacing: '-0.025em', color: '#ffffff' }}>Live Caption</span>
+            <span style={{ fontWeight: '800', fontSize: '1.1rem', letterSpacing: '-0.025em', color: '#ffffff' }}>deer ai</span>
           </div>
           <a 
             href="https://你的主应用链接" 
@@ -95,7 +94,7 @@ export default function IntuitiveLandingPage() {
             }}>
               <p style={{ 
                 margin: 0, 
-                fontSize: 'clamp(1rem, 1.8vw, 1.25rem)', 
+                fontSize: 'clamp(0.95rem, 1.6vw, 1.2rem)', 
                 fontWeight: '600', 
                 color: '#ffffff', 
                 textShadow: '0 2px 6px rgba(0,0,0,0.9)',
@@ -116,13 +115,13 @@ export default function IntuitiveLandingPage() {
             href="https://你的主应用链接" 
             style={{ display: 'block', width: '100%', padding: '16px', background: '#10b981', color: '#030712', borderRadius: '14px', textDecoration: 'none', fontWeight: '800', fontSize: '1.05rem', boxSizing: 'border-box', boxShadow: '0 6px 25px rgba(16,185,129,0.35)', transition: 'transform 0.2s' }}
           >
-            Start Streaming With Live Captions &rarr;
+            Start Streaming With deer ai &rarr;
           </a>
         </div>
 
         {/* 极简页脚 */}
         <footer style={{ width: '100%', maxWidth: '900px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.8rem', color: '#6b7280', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '20px' }}>
-          <span>© {new Date().getFullYear()} Live Caption (deerai.ca)</span>
+          <span>© {new Date().getFullYear()} deer ai (deerai.ca)</span>
           <div style={{ display: 'flex', gap: '16px' }}>
             <a href="/privacy" style={{ color: '#9ca3af', textDecoration: 'none' }}>Privacy</a>
             <a href="/terms" style={{ color: '#9ca3af', textDecoration: 'none' }}>Terms</a>

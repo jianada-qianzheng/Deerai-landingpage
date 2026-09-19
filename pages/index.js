@@ -77,7 +77,7 @@ export default function IntuitiveLandingPage() {
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#ef4444', fontWeight: '700' }}>
                 <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444', display: 'inline-block', boxShadow: '0 0 8px #ef4444' }}></span> Live Caption
               </span>
-              <span>OBS / YouTube Integration</span>
+              <span>Real-Time Subtitles for OBS & YouTube Streams</span>
             </div>
 
             {/* 字幕黑底框模拟（整行切换） */}

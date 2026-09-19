@@ -1,17 +1,17 @@
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
 
-// 直播字幕语句（包含核心说明，整行切换）
+// 精简的单行直播字幕语句
 const captionLines = [
-  "Speak naturally during your broadcast. Our AI instantly converts your voice into professional live captions on screen with zero lag.",
+  "Speak naturally — AI converts your voice to live captions instantly.",
   "Seamlessly integrated with OBS Studio and YouTube Live.",
-  "Zero latency. Professional broadcasting quality."
+  "Zero latency, professional broadcasting quality."
 ];
 
 export default function IntuitiveLandingPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // 每一行字幕停留 3.5 秒后自动切换下一行（整行刷新）
+  // 每隔 3.5 秒自动切换下一行
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % captionLines.length);
@@ -42,7 +42,6 @@ export default function IntuitiveLandingPage() {
         <nav style={{ width: '100%', maxWidth: '900px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 12px #10b981' }}></span>
-            {/* 品牌名称字体与间距优化 */}
             <span style={{ fontWeight: '800', fontSize: '1.15rem', letterSpacing: '-0.03em', color: '#ffffff' }}>deer ai</span>
           </div>
           <a 
@@ -63,7 +62,7 @@ export default function IntuitiveLandingPage() {
             </span>
           </h1>
 
-          {/* 🌟 直播字幕动态演示视窗（整行刷新） */}
+          {/* 🌟 直播字幕动态演示视窗 */}
           <div style={{ 
             background: 'linear-gradient(180deg, #111827 0%, #0b1120 100%)', 
             border: '1px solid rgba(16, 185, 129, 0.3)', 
@@ -74,33 +73,37 @@ export default function IntuitiveLandingPage() {
             position: 'relative',
             overflow: 'hidden'
           }}>
-            {/* 视窗顶部状态栏 */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', fontSize: '0.75rem', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            {/* 视窗顶部状态栏（仅保留左侧红点状态） */}
+            <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', marginBottom: '16px', fontSize: '0.75rem', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#ef4444', fontWeight: '700' }}>
                 <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444', display: 'inline-block', boxShadow: '0 0 8px #ef4444' }}></span> Live Caption
               </span>
-              <span>Real-Time Subtitles for OBS & YouTube Streams</span>
             </div>
 
-            {/* 字幕黑底框模拟（整行切换） */}
+            {/* 字幕黑底框模拟（上方留白加大，字幕置底，强制单行，窄屏自动缩字号） */}
             <div style={{ 
               background: 'rgba(0, 0, 0, 0.85)', 
               border: '1px solid rgba(255, 255, 255, 0.1)', 
               borderRadius: '12px', 
-              padding: '28px 20px', 
-              minHeight: '90px',
+              padding: '45px 16px 20px 16px', 
+              minHeight: '100px',
               display: 'flex',
-              alignItems: 'center',
+              alignItems: 'flex-end', 
               justifyContent: 'center',
-              textAlign: 'center'
+              textAlign: 'center',
+              overflow: 'hidden'
             }}>
               <p style={{ 
                 margin: 0, 
-                fontSize: 'clamp(0.95rem, 1.6vw, 1.2rem)', 
+                fontSize: 'clamp(0.68rem, 1.35vw, 1.05rem)', 
                 fontWeight: '600', 
                 color: '#ffffff', 
                 textShadow: '0 2px 6px rgba(0,0,0,0.9)',
-                lineHeight: '1.5',
+                lineHeight: '1.4',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                width: '100%',
                 transition: 'opacity 0.3s ease-in-out'
               }}>
                 {captionLines[currentIndex]}

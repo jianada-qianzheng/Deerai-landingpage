@@ -53,14 +53,9 @@ export default function IntuitiveLandingPage() {
         </nav>
 
         {/* 核心价值区 */}
-        <div style={{ maxWidth: '780px', width: '100%', textAlign: 'center', margin: 'auto 0' }}>
+        <div style={{ maxWidth: '780px', width: '100%', textAlign: 'center', margin: 'auto 0', padding: '20px 0' }}>
           
-          {/* 产品定位小标签（明确 deer ai 与 Live Caption 的关系） */}
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '4px 12px', background: 'rgba(59, 130, 246, 0.1)', border: '1px solid rgba(59, 130, 246, 0.25)', borderRadius: '20px', color: '#60a5fa', fontSize: '0.75rem', fontWeight: '700', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            <span>deer ai Product</span>
-          </div>
-
-          <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: '900', lineHeight: '1.2', letterSpacing: '-0.03em', color: '#ffffff', marginBottom: '24px' }}>
+          <h1 style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', fontWeight: '900', lineHeight: '1.15', letterSpacing: '-0.035em', color: '#ffffff', marginBottom: '32px' }}>
             Real-Time Subtitles for <br />
             <span style={{ background: 'linear-gradient(135deg, #34d399 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
               OBS & YouTube Streams
@@ -88,7 +83,7 @@ export default function IntuitiveLandingPage() {
 
             {/* 字幕黑底框模拟（整行切换） */}
             <div style={{ 
-              background: 'rgba(0, 0, 0, 0.8)', 
+              background: 'rgba(0, 0, 0, 0.85)', 
               border: '1px solid rgba(255, 255, 255, 0.1)', 
               borderRadius: '12px', 
               padding: '28px 20px', 

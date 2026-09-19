@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
 
-// 直播字幕语句（包含您要求的核心说明，整行切换）
+// 直播字幕语句（包含核心说明，整行切换）
 const captionLines = [
   "Speak naturally during your broadcast. Our AI instantly converts your voice into professional live captions on screen with zero lag.",
   "Seamlessly integrated with OBS Studio and YouTube Live.",
@@ -75,7 +75,7 @@ export default function IntuitiveLandingPage() {
             {/* 视窗顶部状态栏 */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', fontSize: '0.75rem', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#ef4444', fontWeight: '700' }}>
-                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444', display: 'inline-block', boxShadow: '0 0 8px #ef4444' }}></span> LIVE PREVIEW
+                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444', display: 'inline-block', boxShadow: '0 0 8px #ef4444' }}></span> Live Caption
               </span>
               <span>OBS / YouTube Integration</span>
             </div>

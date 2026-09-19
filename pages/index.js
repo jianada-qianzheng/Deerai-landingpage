@@ -45,7 +45,7 @@ export default function IntuitiveLandingPage() {
             <span style={{ fontWeight: '800', fontSize: '1.15rem', letterSpacing: '-0.02em', color: '#ffffff' }}>Deer AI</span>
           </div>
           <a 
-            href="https://你的主应用链接" 
+            href="https://live-caption.deerai.ca" 
             style={{ padding: '8px 18px', background: '#2563eb', color: 'white', borderRadius: '10px', textDecoration: 'none', fontWeight: '700', fontSize: '0.85rem', boxShadow: '0 4px 12px rgba(37,99,235,0.3)' }}
           >
             Try for Free &rarr;
@@ -117,7 +117,7 @@ export default function IntuitiveLandingPage() {
 
           {/* 行动按钮 */}
           <a 
-            href="https://你的主应用链接" 
+            href="https://live-caption.deerai.ca" 
             style={{ display: 'block', width: '100%', padding: '16px', background: '#10b981', color: '#030712', borderRadius: '14px', textDecoration: 'none', fontWeight: '800', fontSize: '1.05rem', boxSizing: 'border-box', boxShadow: '0 6px 25px rgba(16,185,129,0.35)', transition: 'transform 0.2s' }}
           >
             Try Live Caption for Free &rarr;

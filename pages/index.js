@@ -22,8 +22,8 @@ export default function IntuitiveLandingPage() {
   return (
     <>
       <Head>
-        <title>deer ai - Real-Time Subtitles for Live Streaming</title>
-        <meta name="description" content="Professional AI-powered real-time live captions for OBS Studio and YouTube streams." />
+        <title>Live Caption by deer ai - Real-Time Subtitles for Live Streaming</title>
+        <meta name="description" content="Professional AI-powered real-time live captions for OBS Studio and YouTube streams by deer ai." />
       </Head>
 
       <main style={{
@@ -54,13 +54,26 @@ export default function IntuitiveLandingPage() {
 
         {/* 核心价值区 */}
         <div style={{ maxWidth: '780px', width: '100%', textAlign: 'center', margin: 'auto 0' }}>
+          
+          {/* 产品定位小标签（明确 deer ai 与 Live Caption 的关系） */}
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '4px 12px', background: 'rgba(59, 130, 246, 0.1)', border: '1px solid rgba(59, 130, 246, 0.25)', borderRadius: '20px', color: '#60a5fa', fontSize: '0.75rem', fontWeight: '700', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            <span>deer ai Product</span>
+          </div>
+
+          <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: '900', lineHeight: '1.2', letterSpacing: '-0.03em', color: '#ffffff', marginBottom: '24px' }}>
+            Real-Time Subtitles for <br />
+            <span style={{ background: 'linear-gradient(135deg, #34d399 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              OBS & YouTube Streams
+            </span>
+          </h1>
+
           {/* 🌟 直播字幕动态演示视窗（整行刷新） */}
           <div style={{ 
             background: 'linear-gradient(180deg, #111827 0%, #0b1120 100%)', 
             border: '1px solid rgba(16, 185, 129, 0.3)', 
             borderRadius: '20px', 
             padding: '24px', 
-            marginBottom: '32px',
+            marginBottom: '28px',
             boxShadow: '0 20px 50px rgba(0,0,0,0.6)',
             position: 'relative',
             overflow: 'hidden'

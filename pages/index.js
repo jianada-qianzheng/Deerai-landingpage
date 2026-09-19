@@ -22,8 +22,8 @@ export default function IntuitiveLandingPage() {
   return (
     <>
       <Head>
-        <title>Live Caption by deer ai - Real-Time Subtitles for Live Streaming</title>
-        <meta name="description" content="Professional AI-powered real-time live captions for OBS Studio and YouTube streams by deer ai." />
+        <title>Live Caption by Deer AI - Real-Time Subtitles for Live Streaming</title>
+        <meta name="description" content="Professional AI-powered real-time live captions for OBS Studio and YouTube streams by Deer AI." />
       </Head>
 
       <main style={{
@@ -42,7 +42,7 @@ export default function IntuitiveLandingPage() {
         <nav style={{ width: '100%', maxWidth: '900px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 12px #10b981' }}></span>
-            <span style={{ fontWeight: '800', fontSize: '1.15rem', letterSpacing: '-0.03em', color: '#ffffff' }}>deer ai</span>
+            <span style={{ fontWeight: '800', fontSize: '1.15rem', letterSpacing: '-0.02em', color: '#ffffff' }}>Deer AI</span>
           </div>
           <a 
             href="https://你的主应用链接" 
@@ -55,7 +55,6 @@ export default function IntuitiveLandingPage() {
         {/* 核心价值区 */}
         <div style={{ maxWidth: '780px', width: '100%', textAlign: 'center', margin: 'auto 0', padding: '20px 0' }}>
           
-          {/* 🌟 主标题：窄屏自动缩小、宽屏自动放大 */}
           <h1 style={{ fontSize: 'clamp(1.7rem, 5.2vw, 3.4rem)', fontWeight: '900', lineHeight: '1.15', letterSpacing: '-0.035em', color: '#ffffff', marginBottom: '32px' }}>
             Real-Time Subtitles for <br />
             <span style={{ background: 'linear-gradient(135deg, #34d399 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
@@ -74,14 +73,14 @@ export default function IntuitiveLandingPage() {
             position: 'relative',
             overflow: 'hidden'
           }}>
-            {/* 视窗顶部状态栏（仅保留左侧红点状态） */}
+            {/* 视窗顶部状态栏 */}
             <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', marginBottom: '16px', fontSize: '0.75rem', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#ef4444', fontWeight: '700' }}>
                 <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444', display: 'inline-block', boxShadow: '0 0 8px #ef4444' }}></span> Live Caption
               </span>
             </div>
 
-            {/* 字幕黑底框模拟（上方留白加大，字幕置底，强制单行，窄屏自动缩字号） */}
+            {/* 字幕黑底框模拟（宽屏显著加大字号，窄屏自适应，严格单行不换行） */}
             <div style={{ 
               background: 'rgba(0, 0, 0, 0.85)', 
               border: '1px solid rgba(255, 255, 255, 0.1)', 
@@ -96,7 +95,7 @@ export default function IntuitiveLandingPage() {
             }}>
               <p style={{ 
                 margin: 0, 
-                fontSize: 'clamp(0.68rem, 1.35vw, 1.05rem)', 
+                fontSize: 'clamp(0.75rem, 2.2vw, 1.5rem)', 
                 fontWeight: '600', 
                 color: '#ffffff', 
                 textShadow: '0 2px 6px rgba(0,0,0,0.9)',
@@ -127,7 +126,7 @@ export default function IntuitiveLandingPage() {
 
         {/* 极简页脚 */}
         <footer style={{ width: '100%', maxWidth: '900px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.8rem', color: '#6b7280', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '20px' }}>
-          <span>© {new Date().getFullYear()} deer ai (deerai.ca)</span>
+          <span>© {new Date().getFullYear()} Deer AI (deerai.ca)</span>
           <div style={{ display: 'flex', gap: '16px' }}>
             <a href="/privacy" style={{ color: '#9ca3af', textDecoration: 'none' }}>Privacy</a>
             <a href="/terms" style={{ color: '#9ca3af', textDecoration: 'none' }}>Terms</a>

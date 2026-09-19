@@ -55,20 +55,12 @@ export default function IntuitiveLandingPage() {
 
         {/* 核心价值区 */}
         <div style={{ maxWidth: '780px', width: '100%', textAlign: 'center', margin: 'auto 0' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '6px 14px', background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.25)', borderRadius: '20px', color: '#34d399', fontSize: '0.8rem', fontWeight: '700', marginBottom: '20px' }}>
-            <span>⚡ AI Live Subtitle Engine</span>
-          </div>
-
-          <h1 style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', fontWeight: '900', lineHeight: '1.15', letterSpacing: '-0.03em', color: '#ffffff', marginBottom: '16px' }}>
+          <h1 style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', fontWeight: '900', lineHeight: '1.15', letterSpacing: '-0.03em', color: '#ffffff', marginBottom: '28px' }}>
             Real-Time Subtitles for <br />
             <span style={{ background: 'linear-gradient(135deg, #34d399 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
               OBS & YouTube Streams
             </span>
           </h1>
-
-          <p style={{ fontSize: '1.05rem', color: '#9ca3af', lineHeight: '1.6', marginBottom: '32px' }}>
-            Transform your spoken words into clean, professional live streams captions instantly.
-          </p>
 
           {/* 🌟 直播字幕动态演示视窗（整行刷新） */}
           <div style={{ 

@@ -15,7 +15,10 @@ export const translations = {
     captionHint: "↑ Real-time caption line switching as spoken during stream.",
     mainBtn: "Try Live Caption for Free →",
     privacy: "Privacy",
-    terms: "Terms"
+    terms: "Terms",
+    priceFormat: "{symbol}{price} {currency} / {unit}",
+    perHourText: "hr",
+    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" }
   },
   zh: {
     title: "Deer AI | OBS 与 YouTube 实时直播字幕",
@@ -32,7 +35,10 @@ export const translations = {
     captionHint: "↑ 直播过程中随语音实时切换的字幕示例。",
     mainBtn: "免费试用 Live Caption →",
     privacy: "隐私政策",
-    terms: "服务条款"
+    terms: "服务条款",
+    priceFormat: "每{unit} {symbol}{price} {currency}",
+    perHourText: "小时",
+    currencies: { USD: "美元", CAD: "加元", EUR: "欧元", GBP: "英镑", JPY: "日元", TWD: "新台币", AUD: "澳元", SGD: "新元", HKD: "港币", CNY: "人民币" }
   },
   "zh-TW": {
     title: "Deer AI | OBS 與 YouTube 即時直播字幕",
@@ -49,7 +55,10 @@ export const translations = {
     captionHint: "↑ 直播過程中隨語音即時切換的字幕範例。",
     mainBtn: "免費試用 Live Caption →",
     privacy: "隱私權政策",
-    terms: "服務條款"
+    terms: "服務條款",
+    priceFormat: "{symbol}{price} {currency} / {unit}",
+    perHourText: "小時",
+    currencies: { USD: "美元", CAD: "加幣", EUR: "歐元", GBP: "英鎊", JPY: "日圓", TWD: "台幣", AUD: "澳幣", SGD: "新幣", HKD: "港幣", CNY: "人民幣" }
   },
   fr: {
     title: "Deer AI | Sous-titres en direct pour OBS & YouTube",
@@ -66,7 +75,10 @@ export const translations = {
     captionHint: "↑ Changement de ligne de sous-titres en temps réel parlé pendant le flux.",
     mainBtn: "Essayer Live Caption gratuitement →",
     privacy: "Confidentialité",
-    terms: "Conditions"
+    terms: "Conditions",
+    priceFormat: "{symbol}{price} {currency} / {unit}",
+    perHourText: "heure",
+    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" }
   },
   es: {
     title: "Deer AI | Subtítulos en vivo para OBS y YouTube",
@@ -83,7 +95,10 @@ export const translations = {
     captionHint: "↑ Cambio de línea de subtítulos en tiempo real durante la transmisión.",
     mainBtn: "Probar Live Caption gratis →",
     privacy: "Privacidad",
-    terms: "Términos"
+    terms: "Términos",
+    priceFormat: "{symbol}{price} {currency} / {unit}",
+    perHourText: "hora",
+    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" }
   },
   de: {
     title: "Deer AI | Live-Untertitel für OBS & YouTube",
@@ -100,7 +115,10 @@ export const translations = {
     captionHint: "↑ Echtzeit-Untertitelwechsel während des Streams gesprochen.",
     mainBtn: "Live Caption kostenlos testen →",
     privacy: "Datenschutz",
-    terms: "AGB"
+    terms: "AGB",
+    priceFormat: "{symbol}{price} {currency} / {unit}",
+    perHourText: "Stunde",
+    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" }
   },
   ja: {
     title: "Deer AI | OBS & YouTube リアルタイムライブ字幕",
@@ -117,7 +135,10 @@ export const translations = {
     captionHint: "↑ ストリーム中に話された内容に合わせたリアルタイムの字幕切替。",
     mainBtn: "Live Captionを無料で試す →",
     privacy: "プライバシー",
-    terms: "利用規約"
+    terms: "利用規約",
+    priceFormat: "1{unit}あたり {symbol}{price} {currency}",
+    perHourText: "時間",
+    currencies: { USD: "米ドル", CAD: "カナダドル", EUR: "ユーロ", GBP: "英ポンド", JPY: "円", TWD: "台湾ドル", AUD: "豪ドル", SGD: "シンガポールドル", HKD: "香港ドル", CNY: "人民元" }
   },
   ko: {
     title: "Deer AI | OBS 및 YouTube 실시간 라이브 자막",
@@ -134,7 +155,10 @@ export const translations = {
     captionHint: "↑ 스트림 중 말한 내용에 따른 실시간 자막 라인 전환.",
     mainBtn: "Live Caption 무료 체험하기 →",
     privacy: "개인정보처리방침",
-    terms: "이용약관"
+    terms: "이용약관",
+    priceFormat: "{unit}당 {symbol}{price} {currency}",
+    perHourText: "시간",
+    currencies: { USD: "달러", CAD: "캐나다 달러", EUR: "유로", GBP: "파운드", JPY: "엔", TWD: "대만달러", AUD: "호주 달러", SGD: "싱가포르 달러", HKD: "홍콩 달러", CNY: "위안" }
   },
   pt: {
     title: "Deer AI | Legendas ao Vivo para OBS e YouTube",
@@ -151,7 +175,10 @@ export const translations = {
     captionHint: "↑ Troca de linha de legenda em tempo real conforme falado durante a transmissão.",
     mainBtn: "Testar Live Caption grátis →",
     privacy: "Privacidade",
-    terms: "Termos"
+    terms: "Termos",
+    priceFormat: "{symbol}{price} {currency} / {unit}",
+    perHourText: "hora",
+    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" }
   },
   it: {
     title: "Deer AI | Sottotitoli dal vivo per OBS e YouTube",
@@ -168,7 +195,10 @@ export const translations = {
     captionHint: "↑ Cambio riga sottotitoli in tempo reale come parlato durante lo streaming.",
     mainBtn: "Prova Live Caption gratis →",
     privacy: "Privacy",
-    terms: "Termini"
+    terms: "Termini",
+    priceFormat: "{symbol}{price} {currency} / {unit}",
+    perHourText: "ora",
+    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" }
   },
   ru: {
     title: "Deer AI | Живые субтитры для OBS и YouTube",
@@ -185,6 +215,9 @@ export const translations = {
     captionHint: "↑ Переключение строки субтитров в реальном времени при разговоре во время трансляции.",
     mainBtn: "Попробовать Live Caption бесплатно →",
     privacy: "Конфиденциальность",
-    terms: "Условия"
+    terms: "Условия",
+    priceFormat: "{symbol}{price} {currency} / {unit}",
+    perHourText: "час",
+    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" }
   }
 };

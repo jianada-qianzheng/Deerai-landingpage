@@ -18,7 +18,8 @@ export const translations = {
     terms: "Terms",
     priceFormat: "{symbol}{price} {currency} / {unit}",
     perHourText: "hr",
-    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" }
+    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" },
+    disclaimer: "* Prices are subject to change based on real-time exchange rates. Final amount is determined at checkout."
   },
   zh: {
     title: "Deer AI | OBS 与 YouTube 实时直播字幕",
@@ -38,7 +39,8 @@ export const translations = {
     terms: "服务条款",
     priceFormat: "每{unit} {symbol}{price} {currency}",
     perHourText: "小时",
-    currencies: { USD: "美元", CAD: "加元", EUR: "欧元", GBP: "英镑", JPY: "日元", TWD: "新台币", AUD: "澳元", SGD: "新元", HKD: "港币", CNY: "人民币" }
+    currencies: { USD: "美元", CAD: "加元", EUR: "欧元", GBP: "英镑", JPY: "日元", TWD: "新台币", AUD: "澳元", SGD: "新元", HKD: "港币", CNY: "人民币" },
+    disclaimer: "* 价格可能因实时汇率而异，最终结算金额以实际付款时为准。"
   },
   "zh-TW": {
     title: "Deer AI | OBS 與 YouTube 即時直播字幕",
@@ -58,7 +60,8 @@ export const translations = {
     terms: "服務條款",
     priceFormat: "{symbol}{price} {currency} / {unit}",
     perHourText: "小時",
-    currencies: { USD: "美元", CAD: "加幣", EUR: "歐元", GBP: "英鎊", JPY: "日圓", TWD: "台幣", AUD: "澳幣", SGD: "新幣", HKD: "港幣", CNY: "人民幣" }
+    currencies: { USD: "美元", CAD: "加幣", EUR: "歐元", GBP: "英鎊", JPY: "日圓", TWD: "台幣", AUD: "澳幣", SGD: "新幣", HKD: "港幣", CNY: "人民幣" },
+    disclaimer: "* 價格可能因即時匯率而異，最終結算金額以實際付款時為準。"
   },
   fr: {
     title: "Deer AI | Sous-titres en direct pour OBS & YouTube",
@@ -78,7 +81,8 @@ export const translations = {
     terms: "Conditions",
     priceFormat: "{symbol}{price} {currency} / {unit}",
     perHourText: "heure",
-    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" }
+    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" },
+    disclaimer: "* Les prix sont sujets à changement en fonction des taux de change en temps réel. Le montant final est déterminé lors du paiement."
   },
   es: {
     title: "Deer AI | Subtítulos en vivo para OBS y YouTube",
@@ -98,7 +102,8 @@ export const translations = {
     terms: "Términos",
     priceFormat: "{symbol}{price} {currency} / {unit}",
     perHourText: "hora",
-    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" }
+    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" },
+    disclaimer: "* Los precios están sujetos a cambios según los tipos de cambio en tiempo real. El importe final se determina al momento del pago."
   },
   de: {
     title: "Deer AI | Live-Untertitel für OBS & YouTube",
@@ -118,7 +123,8 @@ export const translations = {
     terms: "AGB",
     priceFormat: "{symbol}{price} {currency} / {unit}",
     perHourText: "Stunde",
-    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" }
+    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" },
+    disclaimer: "* Preise können sich aufgrund von Echtzeit-Wechselkursen ändern. Der Endbetrag wird an der Kasse ermittelt."
   },
   ja: {
     title: "Deer AI | OBS & YouTube リアルタイムライブ字幕",
@@ -138,7 +144,8 @@ export const translations = {
     terms: "利用規約",
     priceFormat: "1{unit}あたり {symbol}{price} {currency}",
     perHourText: "時間",
-    currencies: { USD: "米ドル", CAD: "カナダドル", EUR: "ユーロ", GBP: "英ポンド", JPY: "円", TWD: "台湾ドル", AUD: "豪ドル", SGD: "シンガポールドル", HKD: "香港ドル", CNY: "人民元" }
+    currencies: { USD: "米ドル", CAD: "カナダドル", EUR: "ユーロ", GBP: "英ポンド", JPY: "円", TWD: "台湾ドル", AUD: "豪ドル", SGD: "シンガポールドル", HKD: "香港ドル", CNY: "人民元" },
+    disclaimer: "* 価格はリアルタイムの為替レートに基づいて変更される場合があります。最終的な金額は決済時に確定します。"
   },
   ko: {
     title: "Deer AI | OBS 및 YouTube 실시간 라이브 자막",
@@ -158,7 +165,8 @@ export const translations = {
     terms: "이용약관",
     priceFormat: "{unit}당 {symbol}{price} {currency}",
     perHourText: "시간",
-    currencies: { USD: "달러", CAD: "캐나다 달러", EUR: "유로", GBP: "파운드", JPY: "엔", TWD: "대만달러", AUD: "호주 달러", SGD: "싱가포르 달러", HKD: "홍콩 달러", CNY: "위안" }
+    currencies: { USD: "달러", CAD: "캐나다 달러", EUR: "유로", GBP: "파운드", JPY: "엔", TWD: "대만달러", AUD: "호주 달러", SGD: "싱가포르 달러", HKD: "홍콩 달러", CNY: "위안" },
+    disclaimer: "* 가격은 실시간 환율에 따라 변경될 수 있습니다. 최종 금액은 결제 시 확정됩니다."
   },
   pt: {
     title: "Deer AI | Legendas ao Vivo para OBS e YouTube",
@@ -178,7 +186,8 @@ export const translations = {
     terms: "Termos",
     priceFormat: "{symbol}{price} {currency} / {unit}",
     perHourText: "hora",
-    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" }
+    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" },
+    disclaimer: "* Os preços estão sujeitos a alterações com base nas taxas de câmbio em tempo real. O valor final é determinado no momento da compra."
   },
   it: {
     title: "Deer AI | Sottotitoli dal vivo per OBS e YouTube",
@@ -198,7 +207,8 @@ export const translations = {
     terms: "Termini",
     priceFormat: "{symbol}{price} {currency} / {unit}",
     perHourText: "ora",
-    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" }
+    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" },
+    disclaimer: "* I prezzi sono soggetti a modifiche in base ai tassi di cambio in tempo reale. L'importo finale viene determinato al momento del pagamento."
   },
   ru: {
     title: "Deer AI | Живые субтитры для OBS и YouTube",
@@ -218,6 +228,7 @@ export const translations = {
     terms: "Условия",
     priceFormat: "{symbol}{price} {currency} / {unit}",
     perHourText: "час",
-    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" }
+    currencies: { USD: "USD", CAD: "CAD", EUR: "EUR", GBP: "GBP", JPY: "JPY", TWD: "TWD", AUD: "AUD", SGD: "SGD", HKD: "HKD", CNY: "CNY" },
+    disclaimer: "* Цены могут меняться в зависимости от курсов валют в реальном времени. Окончательная сумма определяется при оформлении заказа."
   }
 };

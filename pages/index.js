@@ -12,10 +12,9 @@ export default function IntuitiveLandingPage() {
   const [packagePrice, setPackagePrice] = useState('10.00');
   const [hourlyPrice, setHourlyPrice] = useState('1.00');
 
-  // 1. 页面加载时检测语言、地区并请求汇率 API
+  // 1. 页面加载时检测浏览器语言（仅用于界面文案多语言），并严格通过 IP 判定国家与汇率
   useEffect(() => {
     const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-
     let targetLang = 'en'; 
     if (browserLang.includes('zh-tw') || browserLang.includes('zh-hk') || browserLang.includes('zh-hant')) {
       targetLang = 'zh-TW'; 
@@ -30,31 +29,43 @@ export default function IntuitiveLandingPage() {
     }
     setLang(targetLang);
 
-    // 确定目标币种
-    let targetCurrency = 'CAD';
-    let symbol = '$';
-    if (browserLang.includes('ca')) {
-      targetCurrency = 'CAD';
-      symbol = '$';
-    } else if (browserLang.includes('fr') || browserLang.includes('de') || browserLang.includes('es') || browserLang.includes('it') || browserLang.includes('eu')) {
-      targetCurrency = 'EUR';
-      symbol = '€';
-    } else {
-      targetCurrency = 'USD';
-      symbol = '$';
-    }
+    // 异步通过 IP 获取用户真实地理位置与汇率
+    async function detectIpAndFetchRates() {
+      let targetCurrency = 'USD';
+      let symbol = '$';
 
-    setCurrencySymbol(symbol);
-    setCurrencyCode(targetCurrency);
-
-    // 异步请求免费汇率 API（以 CAD 为基础货币）
-    async function fetchExchangeRates() {
       try {
-        const res = await fetch('https://open.er-api.com/v6/latest/CAD');
-        const data = await res.json();
+        // Step 1: 通过免费 IP API 获取国家代码
+        const ipRes = await fetch('https://ipapi.co/json/');
+        const ipData = await ipRes.json();
+        const country = ipData.country_code; // 例如 'CA', 'FR', 'US', 'DE' 等
+
+        if (country === 'CA') {
+          targetCurrency = 'CAD';
+          symbol = '$';
+        } else if (['FR', 'DE', 'IT', 'ES', 'NL', 'BE', 'AT', 'PT', 'FI', 'IE', 'GR', 'LU'].includes(country)) {
+          targetCurrency = 'EUR';
+          symbol = '€';
+        } else {
+          targetCurrency = 'USD';
+          symbol = '$';
+        }
+      } catch (e) {
+        console.warn("IP geolocation failed, fallback to USD", e);
+        targetCurrency = 'USD';
+        symbol = '$';
+      }
+
+      setCurrencySymbol(symbol);
+      setCurrencyCode(targetCurrency);
+
+      // Step 2: 请求实时汇率 API（以 CAD 为基础进行换算，基准价为 10 CAD / 1 CAD每小时）
+      try {
+        const rateRes = await fetch('https://open.er-api.com/v6/latest/CAD');
+        const rateData = await rateRes.json();
         
-        if (data && data.rates && data.rates[targetCurrency]) {
-          const rate = data.rates[targetCurrency];
+        if (rateData && rateData.rates && rateData.rates[targetCurrency]) {
+          const rate = rateData.rates[targetCurrency];
           const calculatedPackage = (10 * rate).toFixed(2);
           const calculatedHourly = (1 * rate).toFixed(2);
           
@@ -62,6 +73,7 @@ export default function IntuitiveLandingPage() {
           setHourlyPrice(calculatedHourly);
         }
       } catch (e) {
+        // 汇率 API 异常时的兜底固定价
         if (targetCurrency === 'USD') {
           setPackagePrice('7.50');
           setHourlyPrice('0.75');
@@ -75,7 +87,7 @@ export default function IntuitiveLandingPage() {
       }
     }
 
-    fetchExchangeRates();
+    detectIpAndFetchRates();
   }, []);
 
   const currentText = translations[lang] || translations.en;
@@ -135,7 +147,7 @@ export default function IntuitiveLandingPage() {
             </span>
           </h1>
 
-          {/* 🌟 紧凑型价格替代提示条（取代原先冗长描述，不占空间） */}
+          {/* 🌟 紧凑型价格胶囊（基于真实 IP 自动换算汇率） */}
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -174,7 +186,7 @@ export default function IntuitiveLandingPage() {
               border: '1px solid rgba(255, 255, 255, 0.08)', 
               borderRadius: '10px', 
               padding: '30px 14px 14px 14px', 
-              minHeight: '80px',
+            minHeight: '80px',
               display: 'flex',
               alignItems: 'flex-end', 
               justifyContent: 'center',

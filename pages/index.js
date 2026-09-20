@@ -55,7 +55,6 @@ export default function IntuitiveLandingPage() {
         
         if (data && data.rates && data.rates[targetCurrency]) {
           const rate = data.rates[targetCurrency];
-          // 基础价 10 CAD，600分钟（10小时），即每小时 1 CAD
           const calculatedPackage = (10 * rate).toFixed(2);
           const calculatedHourly = (1 * rate).toFixed(2);
           
@@ -63,7 +62,6 @@ export default function IntuitiveLandingPage() {
           setHourlyPrice(calculatedHourly);
         }
       } catch (e) {
-        // API 异常时使用默认兜底价
         if (targetCurrency === 'USD') {
           setPackagePrice('7.50');
           setHourlyPrice('0.75');
@@ -108,60 +106,75 @@ export default function IntuitiveLandingPage() {
         flexDirection: 'column',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '30px 20px',
-        boxSizing: 'border-box'
+        padding: '16px 20px',
+        boxSizing: 'border-box',
+        overflowX: 'hidden'
       }}>
         {/* 顶部导航栏 */}
-        <nav style={{ width: '100%', maxWidth: '900px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 12px #10b981' }}></span>
-            <span style={{ fontWeight: '800', fontSize: '1.15rem', letterSpacing: '-0.02em', color: '#ffffff' }}>Deer AI</span>
+        <nav style={{ width: '100%', maxWidth: '850px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ width: '9px', height: '9px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 10px #10b981' }}></span>
+            <span style={{ fontWeight: '800', fontSize: '1.1rem', letterSpacing: '-0.02em', color: '#ffffff' }}>Deer AI</span>
           </div>
           <a 
             href="https://live-caption.deerai.ca" 
-            style={{ padding: '8px 18px', background: '#2563eb', color: 'white', borderRadius: '10px', textDecoration: 'none', fontWeight: '700', fontSize: '0.85rem', boxShadow: '0 4px 12px rgba(37,99,235,0.3)' }}
+            style={{ padding: '7px 16px', background: '#2563eb', color: 'white', borderRadius: '9px', textDecoration: 'none', fontWeight: '700', fontSize: '0.82rem', boxShadow: '0 4px 12px rgba(37,99,235,0.3)' }}
           >
             {currentText.navBtn}
           </a>
         </nav>
 
-        {/* 核心价值区 */}
-        <div style={{ maxWidth: '780px', width: '100%', textAlign: 'center', margin: '40px 0', padding: '10px 0' }}>
+        {/* 核心内容区（控制在单屏高度内） */}
+        <div style={{ maxWidth: '720px', width: '100%', textAlign: 'center', margin: '15px 0' }}>
           
-          <h1 style={{ fontSize: 'clamp(1.7rem, 5.2vw, 3.4rem)', fontWeight: '900', lineHeight: '1.15', letterSpacing: '-0.035em', color: '#ffffff', marginBottom: '24px' }}>
+          {/* 主标题 */}
+          <h1 style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.12', letterSpacing: '-0.035em', color: '#ffffff', marginBottom: '12px' }}>
             {currentText.heroLine1} <br />
             <span style={{ background: 'linear-gradient(135deg, #34d399 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
               {currentText.heroLine2}
             </span>
           </h1>
 
-          <p style={{ fontSize: '1.05rem', color: '#9ca3af', marginBottom: '32px', lineHeight: '1.5' }}>
-            {currentText.heroDesc || "Real-time AI live transcription for OBS and YouTube streams. High accuracy, ultra-low latency."}
-          </p>
+          {/* 🌟 紧凑型价格替代提示条（取代原先冗长描述，不占空间） */}
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            background: 'rgba(17, 24, 39, 0.8)',
+            border: '1px solid rgba(52, 211, 153, 0.3)',
+            padding: '6px 16px',
+            borderRadius: '30px',
+            fontSize: '0.88rem',
+            marginBottom: '16px',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
+          }}>
+            <span style={{ color: '#34d399', fontWeight: '800' }}>{currencySymbol}{hourlyPrice} {currencyCode} / hr</span>
+            <span style={{ color: '#4b5563' }}>•</span>
+            <span style={{ color: '#9ca3af' }}>{currencySymbol}{packagePrice} {currencyCode} for 600 mins (No expiry)</span>
+          </div>
 
-          {/* 🌟 直播字幕动态演示视窗 */}
+          {/* 🌟 直播字幕动态演示视窗（精简高度） */}
           <div style={{ 
             background: 'linear-gradient(180deg, #111827 0%, #0b1120 100%)', 
-            border: '1px solid rgba(16, 185, 129, 0.3)', 
-            borderRadius: '20px', 
-            padding: '24px', 
-            marginBottom: '36px',
-            boxShadow: '0 20px 50px rgba(0,0,0,0.6)',
-            position: 'relative',
-            overflow: 'hidden'
+            border: '1px solid rgba(16, 185, 129, 0.25)', 
+            borderRadius: '16px', 
+            padding: '16px', 
+            marginBottom: '16px',
+            boxShadow: '0 15px 35px rgba(0,0,0,0.5)',
+            position: 'relative'
           }}>
-            <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', marginBottom: '16px', fontSize: '0.75rem', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#ef4444', fontWeight: '700' }}>
-                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444', display: 'inline-block', boxShadow: '0 0 8px #ef4444' }}></span> {currentText.liveBadge}
+            <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', marginBottom: '10px', fontSize: '0.7rem', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#ef4444', fontWeight: '700' }}>
+                <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#ef4444', display: 'inline-block', boxShadow: '0 0 6px #ef4444' }}></span> {currentText.liveBadge}
               </span>
             </div>
 
             <div style={{ 
               background: 'rgba(0, 0, 0, 0.85)', 
-              border: '1px solid rgba(255, 255, 255, 0.1)', 
-              borderRadius: '12px', 
-              padding: '45px 16px 20px 16px', 
-              minHeight: '100px',
+              border: '1px solid rgba(255, 255, 255, 0.08)', 
+              borderRadius: '10px', 
+              padding: '30px 14px 14px 14px', 
+              minHeight: '80px',
               display: 'flex',
               alignItems: 'flex-end', 
               justifyContent: 'center',
@@ -170,11 +183,11 @@ export default function IntuitiveLandingPage() {
             }}>
               <p style={{ 
                 margin: 0, 
-                fontSize: 'clamp(0.75rem, 2.2vw, 1.5rem)', 
+                fontSize: 'clamp(0.75rem, 2vw, 1.35rem)', 
                 fontWeight: '600', 
                 color: '#ffffff', 
                 textShadow: '0 2px 6px rgba(0,0,0,0.9)',
-                lineHeight: '1.4',
+                lineHeight: '1.3',
                 whiteSpace: 'nowrap',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
@@ -185,54 +198,24 @@ export default function IntuitiveLandingPage() {
               </p>
             </div>
             
-            <p style={{ margin: '14px 0 0 0', fontSize: '0.8rem', color: '#6b7280' }}>
+            <p style={{ margin: '10px 0 0 0', fontSize: '0.75rem', color: '#6b7280' }}>
               {currentText.captionHint}
             </p>
           </div>
 
-          {/* 🌟 价格展示板块（支持动态汇率换算与每小时单价） */}
-          <div style={{
-            background: 'linear-gradient(135deg, rgba(17, 24, 39, 0.9) 0%, rgba(31, 41, 55, 0.6) 100%)',
-            border: '1px solid rgba(52, 211, 153, 0.4)',
-            borderRadius: '20px',
-            padding: '32px',
-            marginBottom: '32px',
-            boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
-            textAlign: 'center'
-          }}>
-            <span style={{ fontSize: '0.8rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em', background: 'rgba(52, 211, 153, 0.15)', color: '#34d399', padding: '4px 12px', borderRadius: '20px' }}>
-              Transparent Pricing
-            </span>
-            
-            {/* 每小时单价突出展示 */}
-            <div style={{ fontSize: '2.8rem', fontWeight: '900', color: '#ffffff', margin: '16px 0 4px 0' }}>
-              {currencySymbol}{hourlyPrice} <span style={{ fontSize: '1.1rem', fontWeight: '600', color: '#34d399' }}>{currencyCode} / hour</span>
-            </div>
-            
-            {/* 套餐总量说明 */}
-            <p style={{ fontSize: '0.95rem', color: '#9ca3af', marginBottom: '20px' }}>
-              Or <strong style={{ color: '#ffffff' }}>{currencySymbol}{packagePrice} {currencyCode}</strong> for 600 minutes (10 hours) • Never expires
-            </p>
-
-            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px 0', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.9rem', color: '#d1d5db' }}>
-              <li>✓ Support OBS Studio & YouTube Live CC</li>
-              <li>✓ High-accuracy Nova-3 AI model</li>
-              <li>✓ Multi-language real-time translation</li>
-            </ul>
-            <a 
-              href="https://live-caption.deerai.ca" 
-              style={{ display: 'block', width: '100%', padding: '16px', background: '#10b981', color: '#030712', borderRadius: '14px', textDecoration: 'none', fontWeight: '800', fontSize: '1.05rem', boxSizing: 'border-box', boxShadow: '0 6px 25px rgba(16,185,129,0.35)', transition: 'transform 0.2s' }}
-            >
-              {currentText.mainBtn || "Get Started Now"}
-            </a>
-          </div>
-
+          {/* 底部行动主按键（直达试用/购买） */}
+          <a 
+            href="https://live-caption.deerai.ca" 
+            style={{ display: 'block', width: '100%', padding: '14px', background: '#10b981', color: '#030712', borderRadius: '12px', textDecoration: 'none', fontWeight: '800', fontSize: '1rem', boxSizing: 'border-box', boxShadow: '0 6px 20px rgba(16,185,129,0.3)', transition: 'transform 0.2s' }}
+          >
+            {currentText.mainBtn || "Start Free / Get Started"}
+          </a>
         </div>
 
         {/* 极简页脚 */}
-        <footer style={{ width: '100%', maxWidth: '900px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.8rem', color: '#6b7280', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '20px' }}>
+        <footer style={{ width: '100%', maxWidth: '850px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', color: '#6b7280', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '12px' }}>
           <span>© {new Date().getFullYear()} Deer AI (deerai.ca)</span>
-          <div style={{ display: 'flex', gap: '16px' }}>
+          <div style={{ display: 'flex', gap: '14px' }}>
             <a href="/privacy" style={{ color: '#9ca3af', textDecoration: 'none' }}>{currentText.privacy}</a>
             <a href="/terms" style={{ color: '#9ca3af', textDecoration: 'none' }}>{currentText.terms}</a>
           </div>

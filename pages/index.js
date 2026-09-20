@@ -11,11 +11,18 @@ export default function IntuitiveLandingPage() {
   const [currencyCode, setCurrencyCode] = useState('USD');
   const [hourlyPrice, setHourlyPrice] = useState('0.75');
 
-  // 1. 页面加载时检测浏览器语言，并通过 IP 自动获取地区与汇率（失败则严格兜底为 USD）
+  // 1. 页面加载时检测语言，并通过 IP 自动获取地区与汇率（失败则严格兜底为 USD）
   useEffect(() => {
+    // 🌟 优先读取 URL 参数（例如 ?lang=ja），方便您开发和随时测试所有语言！
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryLang = urlParams.get('lang');
+
     const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
     let targetLang = 'en'; 
-    if (browserLang.includes('zh-tw') || browserLang.includes('zh-hk') || browserLang.includes('zh-hant')) {
+
+    if (queryLang && translations[queryLang]) {
+      targetLang = queryLang; 
+    } else if (browserLang.includes('zh-tw') || browserLang.includes('zh-hk') || browserLang.includes('zh-hant')) {
       targetLang = 'zh-TW'; 
     } else if (browserLang.includes('zh')) {
       targetLang = 'zh'; 
@@ -87,7 +94,7 @@ export default function IntuitiveLandingPage() {
   const currentText = translations[lang] || translations.en;
   const captionLines = currentText.captionLines || [];
 
-  // 2. 根据 translations 中的配置动态渲染本地化每小时价格格式、币种称呼与小时单位
+  // 2. 根据 translations 动态渲染本地化价格格式、币种和单位
   const getLocalizedPriceText = () => {
     let priceVal = hourlyPrice;
     if (['fr', 'de', 'es', 'it', 'pt', 'ru'].includes(lang)) {
@@ -160,7 +167,7 @@ export default function IntuitiveLandingPage() {
             </span>
           </h1>
 
-          {/* 极简单行价格胶囊（自动根据 IP 切换币种、按语言匹配本地化名称与小时单位） */}
+          {/* 极简单行价格胶囊 */}
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -234,9 +241,9 @@ export default function IntuitiveLandingPage() {
             {currentText.mainBtn || "Start Free / Get Started"}
           </a>
 
-          {/* 价格免责小字说明 */}
+          {/* 🌟 价格免责小字说明（从 translation 读取） */}
           <p style={{ fontSize: '0.7rem', color: '#6b7280', margin: 0 }}>
-            * Prices are subject to change based on real-time exchange rates. Final amount is determined at checkout.
+            {currentText.disclaimer}
           </p>
         </div>
 

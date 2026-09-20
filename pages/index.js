@@ -1,29 +1,49 @@
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
-
-// 精简的单行直播字幕语句
-const captionLines = [
-  "Speak naturally — AI converts your voice to live captions instantly.",
-  "Seamlessly integrated with OBS Studio and YouTube Live.",
-  "Zero latency, professional broadcasting quality."
-];
+import { translations } from '../locales/translations';
 
 export default function IntuitiveLandingPage() {
+  const [lang, setLang] = useState('en'); // 默认初始状态为英文
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // 每隔 3.5 秒自动切换下一行
+  // 1. 页面加载时精准检测浏览器语言（支持繁体中文、简体中文及其他9种语言）
+  useEffect(() => {
+    const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+
+    let targetLang = 'en'; // 默认回退英文
+
+    if (browserLang.includes('zh-tw') || browserLang.includes('zh-hk') || browserLang.includes('zh-hant')) {
+      targetLang = 'zh-TW'; // 台湾/香港繁体中文
+    } else if (browserLang.includes('zh')) {
+      targetLang = 'zh'; // 简体中文
+    } else {
+      const shortLang = browserLang.split('-')[0];
+      const supportedLangs = ['fr', 'es', 'de', 'ja', 'ko', 'pt', 'it', 'ru'];
+      if (supportedLangs.includes(shortLang)) {
+        targetLang = shortLang;
+      }
+    }
+
+    setLang(targetLang);
+  }, []);
+
+  // 获取当前对应的文案字典
+  const currentText = translations[lang] || translations.en;
+  const captionLines = currentText.captionLines;
+
+  // 2. 字幕自动轮播定时器
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % captionLines.length);
     }, 3500);
     return () => clearInterval(timer);
-  }, []);
+  }, [captionLines.length]);
 
   return (
     <>
       <Head>
-        <title>Live Caption by deer ai - Real-Time Subtitles for Live Streaming</title>
-        <meta name="description" content="Professional AI-powered real-time live captions for OBS Studio and YouTube streams by deer ai." />
+        <title>{currentText.title}</title>
+        <meta name="description" content={currentText.description} />
       </Head>
 
       <main style={{
@@ -42,24 +62,23 @@ export default function IntuitiveLandingPage() {
         <nav style={{ width: '100%', maxWidth: '900px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 12px #10b981' }}></span>
-            <span style={{ fontWeight: '800', fontSize: '1.15rem', letterSpacing: '-0.03em', color: '#ffffff' }}>deer ai</span>
+            <span style={{ fontWeight: '800', fontSize: '1.15rem', letterSpacing: '-0.02em', color: '#ffffff' }}>Deer AI</span>
           </div>
           <a 
-            href="https://你的主应用链接" 
+            href="https://live-caption.deerai.ca" 
             style={{ padding: '8px 18px', background: '#2563eb', color: 'white', borderRadius: '10px', textDecoration: 'none', fontWeight: '700', fontSize: '0.85rem', boxShadow: '0 4px 12px rgba(37,99,235,0.3)' }}
           >
-            Open Dashboard &rarr;
+            {currentText.navBtn}
           </a>
         </nav>
 
         {/* 核心价值区 */}
         <div style={{ maxWidth: '780px', width: '100%', textAlign: 'center', margin: 'auto 0', padding: '20px 0' }}>
           
-          {/* 🌟 主标题：窄屏自动缩小、宽屏自动放大 */}
           <h1 style={{ fontSize: 'clamp(1.7rem, 5.2vw, 3.4rem)', fontWeight: '900', lineHeight: '1.15', letterSpacing: '-0.035em', color: '#ffffff', marginBottom: '32px' }}>
-            Real-Time Subtitles for <br />
+            {currentText.heroLine1} <br />
             <span style={{ background: 'linear-gradient(135deg, #34d399 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-              OBS & YouTube Streams
+              {currentText.heroLine2}
             </span>
           </h1>
 
@@ -74,14 +93,14 @@ export default function IntuitiveLandingPage() {
             position: 'relative',
             overflow: 'hidden'
           }}>
-            {/* 视窗顶部状态栏（仅保留左侧红点状态） */}
+            {/* 视窗顶部状态栏 */}
             <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', marginBottom: '16px', fontSize: '0.75rem', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#ef4444', fontWeight: '700' }}>
-                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444', display: 'inline-block', boxShadow: '0 0 8px #ef4444' }}></span> Live Caption
+                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444', display: 'inline-block', boxShadow: '0 0 8px #ef4444' }}></span> {currentText.liveBadge}
               </span>
             </div>
 
-            {/* 字幕黑底框模拟（上方留白加大，字幕置底，强制单行，窄屏自动缩字号） */}
+            {/* 字幕黑底框模拟 */}
             <div style={{ 
               background: 'rgba(0, 0, 0, 0.85)', 
               border: '1px solid rgba(255, 255, 255, 0.1)', 
@@ -96,7 +115,7 @@ export default function IntuitiveLandingPage() {
             }}>
               <p style={{ 
                 margin: 0, 
-                fontSize: 'clamp(0.68rem, 1.35vw, 1.05rem)', 
+                fontSize: 'clamp(0.75rem, 2.2vw, 1.5rem)', 
                 fontWeight: '600', 
                 color: '#ffffff', 
                 textShadow: '0 2px 6px rgba(0,0,0,0.9)',
@@ -112,25 +131,25 @@ export default function IntuitiveLandingPage() {
             </div>
             
             <p style={{ margin: '14px 0 0 0', fontSize: '0.8rem', color: '#6b7280' }}>
-              ↑ Real-time caption line switching as spoken during stream.
+              {currentText.captionHint}
             </p>
           </div>
 
           {/* 行动按钮 */}
           <a 
-            href="https://你的主应用链接" 
+            href="https://live-caption.deerai.ca" 
             style={{ display: 'block', width: '100%', padding: '16px', background: '#10b981', color: '#030712', borderRadius: '14px', textDecoration: 'none', fontWeight: '800', fontSize: '1.05rem', boxSizing: 'border-box', boxShadow: '0 6px 25px rgba(16,185,129,0.35)', transition: 'transform 0.2s' }}
           >
-            Try Live Caption for Free &rarr;
+            {currentText.mainBtn}
           </a>
         </div>
 
         {/* 极简页脚 */}
         <footer style={{ width: '100%', maxWidth: '900px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.8rem', color: '#6b7280', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '20px' }}>
-          <span>© {new Date().getFullYear()} deer ai (deerai.ca)</span>
+          <span>© {new Date().getFullYear()} Deer AI (deerai.ca)</span>
           <div style={{ display: 'flex', gap: '16px' }}>
-            <a href="/privacy" style={{ color: '#9ca3af', textDecoration: 'none' }}>Privacy</a>
-            <a href="/terms" style={{ color: '#9ca3af', textDecoration: 'none' }}>Terms</a>
+            <a href="/privacy" style={{ color: '#9ca3af', textDecoration: 'none' }}>{currentText.privacy}</a>
+            <a href="/terms" style={{ color: '#9ca3af', textDecoration: 'none' }}>{currentText.terms}</a>
           </div>
         </footer>
       </main>

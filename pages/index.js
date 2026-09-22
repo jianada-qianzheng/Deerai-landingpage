@@ -6,14 +6,14 @@ export default function IntuitiveLandingPage() {
   const [lang, setLang] = useState('en'); 
   const [currentIndex, setCurrentIndex] = useState(0);
   
-  // 价格与汇率状态
+  // 價格與彙率狀態
   const [currencySymbol, setCurrencySymbol] = useState('$');
   const [currencyCode, setCurrencyCode] = useState('USD');
   const [hourlyPrice, setHourlyPrice] = useState('0.75');
 
-  // 1. 页面加载时检测语言，并通过 IP 自动获取地区与汇率（失败则严格兜底为 USD）
+  // 1. 頁面載入時檢測語言，並通過 IP 自動獲取地區與彙率（失敗則嚴格兜底爲 USD）
   useEffect(() => {
-    // 🌟 优先读取 URL 参数（例如 ?lang=ja），方便您开发和随时测试所有语言！
+    // 🌟 優先讀取 URL 參數（例如 ?lang=ja），方便您開發和隨時測試所有語言！
     const urlParams = new URLSearchParams(window.location.search);
     const queryLang = urlParams.get('lang');
 
@@ -35,7 +35,7 @@ export default function IntuitiveLandingPage() {
     }
     setLang(targetLang);
 
-    // 异步通过 IP 获取用户真实地理位置与全球本地货币
+    // 異步通過 IP 獲取用戶真實地理位置與全球本地貨幣
     async function detectIpAndFetchRates() {
       let targetCurrency = 'USD';
       let symbol = '$';
@@ -56,7 +56,7 @@ export default function IntuitiveLandingPage() {
         
         symbol = symbolMap[targetCurrency] || '$';
       } catch (e) {
-        // 定位异常时，强制兜底为 USD
+        // 定位異常時，強制兜底爲 USD
         targetCurrency = 'USD';
         symbol = '$';
       }
@@ -64,7 +64,7 @@ export default function IntuitiveLandingPage() {
       setCurrencySymbol(symbol);
       setCurrencyCode(targetCurrency);
 
-      // 请求实时汇率 API（以 CAD 为基础进行换算）
+      // 請求實時彙率 API（以 CAD 爲基礎進行換算）
       try {
         const rateRes = await fetch('https://open.er-api.com/v6/latest/CAD');
         const rateData = await rateRes.json();
@@ -74,14 +74,14 @@ export default function IntuitiveLandingPage() {
           const calculatedHourly = (1 * rate).toFixed(2);
           setHourlyPrice(calculatedHourly);
         } else {
-          // 未收录的冷门币种安全兜底为 USD
+          // 未收錄的冷門幣種安全兜底爲 USD
           setCurrencyCode('USD');
           setCurrencySymbol('$');
           const fallbackRate = rateData?.rates?.['USD'] || 0.75;
           setHourlyPrice((1 * fallbackRate).toFixed(2));
         }
       } catch (e) {
-        // 汇率接口异常时安全兜底为 USD
+        // 彙率接口異常時安全兜底爲 USD
         setCurrencyCode('USD');
         setCurrencySymbol('$');
         setHourlyPrice('0.75');
@@ -94,7 +94,7 @@ export default function IntuitiveLandingPage() {
   const currentText = translations[lang] || translations.en;
   const captionLines = currentText.captionLines || [];
 
-  // 2. 根据 translations 动态渲染本地化价格格式、币种和单位
+  // 2. 根據 translations 動態渲染本地化價格格式、幣種和單位
   const getLocalizedPriceText = () => {
     let priceVal = hourlyPrice;
     if (['fr', 'de', 'es', 'it', 'pt', 'ru'].includes(lang)) {
@@ -113,7 +113,7 @@ export default function IntuitiveLandingPage() {
       .replace('{unit}', unitText);
   };
 
-  // 3. 字幕自动轮播定时器
+  // 3. 字幕自動輪播定時器
   useEffect(() => {
     if (captionLines.length === 0) return;
     const timer = setInterval(() => {
@@ -142,11 +142,10 @@ export default function IntuitiveLandingPage() {
         boxSizing: 'border-box',
         overflowX: 'hidden'
       }}>
-        {/* 顶部导航栏 */}
+        {/* 頂部導航欄 */}
         <nav style={{ width: '100%', maxWidth: '850px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span style={{ width: '9px', height: '9px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 10px #10b981' }}></span>
-            <span style={{ fontWeight: '800', fontSize: '1.1rem', letterSpacing: '-0.02em', color: '#ffffff' }}>Deer AI</span>
+            <img src="/IMG_1048.png" alt="Deer AI Logo" style={{ height: '32px', width: 'auto', display: 'block' }} />
           </div>
           <a 
             href="https://live-caption.deerai.ca" 
@@ -156,10 +155,10 @@ export default function IntuitiveLandingPage() {
           </a>
         </nav>
 
-        {/* 核心内容区（控制在单屏高度内） */}
+        {/* 核心內容區（控制在單屏高度內） */}
         <div style={{ maxWidth: '720px', width: '100%', textAlign: 'center', margin: '15px 0' }}>
           
-          {/* 主标题 */}
+          {/* 主標題 */}
           <h1 style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.12', letterSpacing: '-0.035em', color: '#ffffff', marginBottom: '12px' }}>
             {currentText.heroLine1} <br />
             <span style={{ background: 'linear-gradient(135deg, #34d399 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
@@ -167,7 +166,7 @@ export default function IntuitiveLandingPage() {
             </span>
           </h1>
 
-          {/* 极简单行价格胶囊 */}
+          {/* 極簡單行價格膠囊 */}
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -183,7 +182,7 @@ export default function IntuitiveLandingPage() {
             <span style={{ color: '#34d399', fontWeight: '800' }}>{getLocalizedPriceText()}*</span>
           </div>
 
-          {/* 直播字幕动态演示视窗 */}
+          {/* 直播字幕動態演示視窗 */}
           <div style={{ 
             background: 'linear-gradient(180deg, #111827 0%, #0b1120 100%)', 
             border: '1px solid rgba(16, 185, 129, 0.25)', 
@@ -233,7 +232,7 @@ export default function IntuitiveLandingPage() {
             </p>
           </div>
 
-          {/* 底部行动主按键 */}
+          {/* 底部行動主按鍵 */}
           <a 
             href="https://live-caption.deerai.ca" 
             style={{ display: 'block', width: '100%', padding: '14px', background: '#10b981', color: '#030712', borderRadius: '12px', textDecoration: 'none', fontWeight: '800', fontSize: '1rem', boxSizing: 'border-box', boxShadow: '0 6px 20px rgba(16,185,129,0.3)', transition: 'transform 0.2s', marginBottom: '8px' }}
@@ -241,13 +240,13 @@ export default function IntuitiveLandingPage() {
             {currentText.mainBtn || "Start Free / Get Started"}
           </a>
 
-          {/* 🌟 价格免责小字说明（从 translation 读取） */}
+          {/* 🌟 價格免責小字說明（從 translation 讀取） */}
           <p style={{ fontSize: '0.7rem', color: '#6b7280', margin: 0 }}>
             {currentText.disclaimer}
           </p>
         </div>
 
-        {/* 极简页脚 */}
+        {/* 極簡頁腳 */}
         <footer style={{ width: '100%', maxWidth: '850px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', color: '#6b7280', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '12px' }}>
           <span>© {new Date().getFullYear()} Deer AI (deerai.ca)</span>
           <div style={{ display: 'flex', gap: '14px' }}>

@@ -131,8 +131,8 @@ export default function IntuitiveLandingPage() {
 
       <main style={{
         minHeight: '100vh',
-        background: '#070b14',
-        color: '#f3f4f6',
+        background: '#ffffff',
+        color: '#111827',
         fontFamily: 'system-ui, -apple-system, sans-serif',
         display: 'flex',
         flexDirection: 'column',
@@ -149,7 +149,7 @@ export default function IntuitiveLandingPage() {
           </div>
           <a 
             href="https://live-caption.deerai.ca" 
-            style={{ padding: '7px 16px', background: '#2563eb', color: 'white', borderRadius: '9px', textDecoration: 'none', fontWeight: '700', fontSize: '0.82rem', boxShadow: '0 4px 12px rgba(37,99,235,0.3)' }}
+            style={{ padding: '7px 16px', background: '#2563eb', color: 'white', borderRadius: '9px', textDecoration: 'none', fontWeight: '700', fontSize: '0.82rem', boxShadow: '0 4px 12px rgba(37,99,235,0.2)' }}
           >
             {currentText.navBtn}
           </a>
@@ -159,9 +159,9 @@ export default function IntuitiveLandingPage() {
         <div style={{ maxWidth: '720px', width: '100%', textAlign: 'center', margin: '15px 0' }}>
           
           {/* 主標題 */}
-          <h1 style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.12', letterSpacing: '-0.035em', color: '#ffffff', marginBottom: '12px' }}>
+          <h1 style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.12', letterSpacing: '-0.035em', color: '#111827', marginBottom: '12px' }}>
             {currentText.heroLine1} <br />
-            <span style={{ background: 'linear-gradient(135deg, #34d399 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            <span style={{ background: 'linear-gradient(135deg, #059669 0%, #2563eb 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
               {currentText.heroLine2}
             </span>
           </h1>
@@ -171,25 +171,25 @@ export default function IntuitiveLandingPage() {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '6px',
-            background: 'rgba(17, 24, 39, 0.8)',
-            border: '1px solid rgba(52, 211, 153, 0.3)',
+            background: '#f8fafc',
+            border: '1px solid rgba(5, 150, 105, 0.25)',
             padding: '6px 16px',
             borderRadius: '30px',
             fontSize: '0.9rem',
             marginBottom: '14px',
-            boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
+            boxShadow: '0 4px 15px rgba(0,0,0,0.04)'
           }}>
-            <span style={{ color: '#34d399', fontWeight: '800' }}>{getLocalizedPriceText()}*</span>
+            <span style={{ color: '#059669', fontWeight: '800' }}>{getLocalizedPriceText()}*</span>
           </div>
 
           {/* 直播字幕動態演示視窗 */}
           <div style={{ 
-            background: 'linear-gradient(180deg, #111827 0%, #0b1120 100%)', 
-            border: '1px solid rgba(16, 185, 129, 0.25)', 
+            background: 'linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%)', 
+            border: '1px solid rgba(5, 150, 105, 0.2)', 
             borderRadius: '16px', 
             padding: '16px', 
             marginBottom: '14px',
-            boxShadow: '0 15px 35px rgba(0,0,0,0.5)',
+            boxShadow: '0 15px 35px rgba(0,0,0,0.06)',
             position: 'relative'
           }}>
             <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', marginBottom: '10px', fontSize: '0.7rem', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
@@ -199,7 +199,7 @@ export default function IntuitiveLandingPage() {
             </div>
 
             <div style={{ 
-              background: 'rgba(0, 0, 0, 0.85)', 
+              background: '#0b1120', 
               border: '1px solid rgba(255, 255, 255, 0.08)', 
               borderRadius: '10px', 
               padding: '30px 14px 14px 14px', 
@@ -235,7 +235,7 @@ export default function IntuitiveLandingPage() {
           {/* 底部行動主按鍵 */}
           <a 
             href="https://live-caption.deerai.ca" 
-            style={{ display: 'block', width: '100%', padding: '14px', background: '#10b981', color: '#030712', borderRadius: '12px', textDecoration: 'none', fontWeight: '800', fontSize: '1rem', boxSizing: 'border-box', boxShadow: '0 6px 20px rgba(16,185,129,0.3)', transition: 'transform 0.2s', marginBottom: '8px' }}
+            style={{ display: 'block', width: '100%', padding: '14px', background: '#059669', color: '#ffffff', borderRadius: '12px', textDecoration: 'none', fontWeight: '800', fontSize: '1rem', boxSizing: 'border-box', boxShadow: '0 6px 20px rgba(5,150,105,0.25)', transition: 'transform 0.2s', marginBottom: '8px' }}
           >
             {currentText.mainBtn || "Start Free / Get Started"}
           </a>
@@ -247,11 +247,11 @@ export default function IntuitiveLandingPage() {
         </div>
 
         {/* 極簡頁腳 */}
-        <footer style={{ width: '100%', maxWidth: '850px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', color: '#6b7280', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '12px' }}>
+        <footer style={{ width: '100%', maxWidth: '850px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', color: '#6b7280', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '12px' }}>
           <span>© {new Date().getFullYear()} Deer AI (deerai.ca)</span>
           <div style={{ display: 'flex', gap: '14px' }}>
-            <a href="/privacy" style={{ color: '#9ca3af', textDecoration: 'none' }}>{currentText.privacy}</a>
-            <a href="/terms" style={{ color: '#9ca3af', textDecoration: 'none' }}>{currentText.terms}</a>
+            <a href="/privacy" style={{ color: '#4b5563', textDecoration: 'none' }}>{currentText.privacy}</a>
+            <a href="/terms" style={{ color: '#4b5563', textDecoration: 'none' }}>{currentText.terms}</a>
           </div>
         </footer>
       </main>

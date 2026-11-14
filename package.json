@@ -9,9 +9,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.4.1",
     "next": "latest",
+    "next-auth": "latest",
     "react": "latest",
-    "react-dom": "latest",
-    "next-auth": "latest"
+    "react-dom": "latest"
   }
 }

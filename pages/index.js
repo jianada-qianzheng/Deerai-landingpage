@@ -127,6 +127,8 @@ export default function IntuitiveLandingPage() {
       <Head>
         <title>{currentText.title}</title>
         <meta name="description" content={currentText.description} />
+        <link rel="icon" type="image/png" href="/icon.png" />
+        <link rel="apple-touch-icon" href="/icon.png" />
       </Head>
 
       <main style={{
@@ -145,7 +147,7 @@ export default function IntuitiveLandingPage() {
         {/* 頂部導航欄 */}
         <nav style={{ width: '100%', maxWidth: '850px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <img src="/IMG_1048.png" alt="Deer AI Logo" style={{ height: '42px', width: 'auto', display: 'block' }} />
+            <img src="/icon.png" alt="Deer AI Logo" style={{ height: '42px', width: 'auto', display: 'block' }} />
             <span style={{ fontWeight: '800', fontSize: '1.1rem', letterSpacing: '-0.02em', color: '#111827' }}>Deer AI</span>
           </div>
           <a 
